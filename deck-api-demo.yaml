@@ -1,0 +1,31 @@
+_format_version: "3.0"
+_workspace: Testes_Andre
+services:
+- name: mockbin-test
+  connect_timeout: 60000
+  enabled: true
+  host: mockbin.org
+  path: /bin/ed1a0c4a-939e-467d-82a1-af687f99132f
+  port: 443
+  protocol: https
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - hosts:
+    - api.kong.tst.berzuk.com
+    https_redirect_status_code: 426
+    name: example
+    path_handling: v0
+    paths:
+    - /example
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000
+
+
